@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ejercicio 2 | Cilindro inscrito en esfera</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Ayudant&iacute;a 10 - MAT1610</p>
+        <h1>Cilindro de volumen m&aacute;ximo inscrito en una esfera</h1>
+      </div>
+      <div class="topbar-actions">
+        <div class="answer-pill">
+          <span>Altura &oacute;ptima</span>
+          <strong>h = 16&radic;3 / 3 cm</strong>
+        </div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="surface stage" aria-labelledby="diagram-title">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Ejercicio 2</p>
+            <h2 id="diagram-title">Esfera de radio 8 cm y cilindro inscrito</h2>
+          </div>
+          <p id="motion-state" class="state-label">Explorando alturas</p>
+        </div>
+
+        <svg id="diagram" viewBox="0 0 720 560" role="img" aria-label="Diagrama animado de un cilindro inscrito en una esfera de radio 8 centimetros">
+          <defs>
+            <radialGradient id="sphereFill" cx="35%" cy="25%" r="72%">
+              <stop offset="0" stop-color="#ffffff" stop-opacity="0.92"></stop>
+              <stop offset="0.42" stop-color="#e9f8ff" stop-opacity="0.46"></stop>
+              <stop offset="0.78" stop-color="#bde8f2" stop-opacity="0.26"></stop>
+              <stop offset="1" stop-color="#0f6070" stop-opacity="0.14"></stop>
+            </radialGradient>
+            <linearGradient id="sphereRim" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0" stop-color="#21889b"></stop>
+              <stop offset="0.52" stop-color="#0f6c7b"></stop>
+              <stop offset="1" stop-color="#064653"></stop>
+            </linearGradient>
+            <clipPath id="sphereClip">
+              <circle cx="330" cy="280" r="185"></circle>
+            </clipPath>
+            <linearGradient id="cylinderFill" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0" stop-color="#ffe1d4"></stop>
+              <stop offset="1" stop-color="#f5a377"></stop>
+            </linearGradient>
+            <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#123" flood-opacity="0.14"></feDropShadow>
+            </filter>
+          </defs>
+
+          <g class="part-sphere">
+            <circle id="sphere" cx="330" cy="280" r="185" fill="url(#sphereFill)" stroke="url(#sphereRim)" stroke-width="5"></circle>
+            <g class="sphere-3d-detail" clip-path="url(#sphereClip)">
+              <ellipse cx="330" cy="280" rx="185" ry="55" fill="none" stroke="#0f6c7b" stroke-width="2" stroke-dasharray="9 10" opacity="0.3"></ellipse>
+              <ellipse cx="330" cy="280" rx="185" ry="106" fill="none" stroke="#0f6c7b" stroke-width="2" stroke-dasharray="8 11" opacity="0.18"></ellipse>
+              <ellipse cx="330" cy="280" rx="185" ry="150" fill="none" stroke="#0f6c7b" stroke-width="2" stroke-dasharray="8 12" opacity="0.12"></ellipse>
+              <ellipse cx="330" cy="280" rx="62" ry="185" fill="none" stroke="#0f6c7b" stroke-width="2" stroke-dasharray="8 12" opacity="0.18"></ellipse>
+              <ellipse cx="330" cy="280" rx="125" ry="185" fill="none" stroke="#0f6c7b" stroke-width="2" stroke-dasharray="8 12" opacity="0.12"></ellipse>
+              <path d="M219 162 C260 116 353 98 423 126" fill="none" stroke="#ffffff" stroke-width="11" stroke-linecap="round" opacity="0.58"></path>
+              <path d="M227 168 C268 128 351 111 414 137" fill="none" stroke="#87d7e5" stroke-width="3" stroke-linecap="round" opacity="0.48"></path>
+            </g>
+            <line id="equator" class="sphere-3d-detail" x1="145" y1="280" x2="515" y2="280" stroke="#176b7a" stroke-width="3" stroke-dasharray="9 12" opacity="0.32"></line>
+            <text x="330" y="83" class="svg-title">Radio de la esfera: 8 cm</text>
+          </g>
+
+          <g class="part-cylinder" filter="url(#softShadow)">
+            <rect id="cylinder-wall" x="235" y="180" width="190" height="200" rx="4" fill="url(#cylinderFill)" opacity="0.76" stroke="#b13d1f" stroke-width="3"></rect>
+            <ellipse id="cylinder-top" cx="330" cy="180" rx="95" ry="24" fill="#ffd5c2" stroke="#b13d1f" stroke-width="3"></ellipse>
+            <ellipse id="cylinder-bottom" cx="330" cy="380" rx="95" ry="24" fill="#f28c61" stroke="#b13d1f" stroke-width="3"></ellipse>
+            <path id="cylinder-front" d="" fill="none" stroke="#7e2b16" stroke-width="3" opacity="0.45"></path>
+          </g>
+
+          <g class="part-sphere-front" pointer-events="none">
+            <g class="sphere-3d-detail" clip-path="url(#sphereClip)">
+              <path d="M145 280 A185 185 0 0 1 515 280" fill="none" stroke="#0f6c7b" stroke-width="3" opacity="0.36"></path>
+              <path d="M165 196 A185 185 0 0 1 495 196" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" opacity="0.38"></path>
+              <ellipse cx="330" cy="280" rx="185" ry="55" fill="none" stroke="#ffffff" stroke-width="3" opacity="0.22"></ellipse>
+              <ellipse cx="330" cy="280" rx="62" ry="185" fill="none" stroke="#0f6c7b" stroke-width="2" opacity="0.2"></ellipse>
+            </g>
+            <circle cx="330" cy="280" r="185" fill="none" stroke="url(#sphereRim)" stroke-width="5"></circle>
+          </g>
+
+          <g class="part-triangle">
+            <polygon id="right-triangle-fill" points="" fill="#f8d25c" opacity="0.22"></polygon>
+            <line id="line-os" x1="330" y1="280" x2="330" y2="180" stroke="#1c3f95" stroke-width="5" stroke-linecap="round"></line>
+            <line id="line-sp" x1="330" y1="180" x2="425" y2="180" stroke="#0f766e" stroke-width="5" stroke-linecap="round"></line>
+            <line id="line-op" x1="330" y1="280" x2="425" y2="180" stroke="#9f2f74" stroke-width="5" stroke-linecap="round"></line>
+            <path id="right-angle" d="" fill="none" stroke="#263238" stroke-width="3"></path>
+            <circle id="point-o" cx="330" cy="280" r="6" fill="#1c3f95"></circle>
+            <circle id="point-s" cx="330" cy="180" r="6" fill="#0f766e"></circle>
+            <circle id="point-p" cx="425" cy="180" r="6" fill="#9f2f74"></circle>
+            <text id="label-o" class="point-label" x="309" y="286">O</text>
+            <text id="label-s" class="point-label" x="309" y="170">S</text>
+            <text id="label-p" class="point-label" x="437" y="174">P</text>
+            <text id="label-h2" class="measure-label" x="286" y="232">h/2</text>
+            <text id="label-r" class="measure-label" x="370" y="165">r</text>
+            <text id="label-radius" class="measure-label radius-label" x="378" y="245">8</text>
+          </g>
+
+          <g class="part-height">
+            <line id="height-guide" x1="558" y1="180" x2="558" y2="380" stroke="#263238" stroke-width="3"></line>
+            <line id="height-top-tick" x1="538" y1="180" x2="578" y2="180" stroke="#263238" stroke-width="3"></line>
+            <line id="height-bottom-tick" x1="538" y1="380" x2="578" y2="380" stroke="#263238" stroke-width="3"></line>
+            <text id="label-height" x="590" y="286" class="height-label">h</text>
+          </g>
+        </svg>
+      </section>
+
+      <aside class="surface controls" aria-label="Controles de la animacion">
+        <div class="control-row">
+          <button id="play-toggle" class="primary-button" type="button" aria-pressed="true">
+            <svg class="icon play-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M8 5v14l11-7z"></path>
+            </svg>
+            <svg class="icon pause-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 5h4v14H7zM13 5h4v14h-4z"></path>
+            </svg>
+            <span id="play-label">Pausar</span>
+          </button>
+          <button id="max-button" class="ghost-button" type="button">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 3l2.3 6.3H21l-5.4 3.9 2.1 6.5L12 15.6 6.3 19.7l2.1-6.5L3 9.3h6.7z"></path>
+            </svg>
+            M&aacute;ximo
+          </button>
+        </div>
+
+        <label class="slider-block" for="height-slider">
+          <span>Altura del cilindro</span>
+          <strong id="height-value">9.24 cm</strong>
+        </label>
+        <input id="height-slider" type="range" min="0.2" max="15.95" step="0.01" value="9.24" aria-label="Altura del cilindro">
+
+        <div class="metric-list" aria-live="polite">
+          <div>
+            <span>Radio de la base</span>
+            <strong id="radius-value">6.53 cm</strong>
+          </div>
+          <div>
+            <span>Volumen</span>
+            <strong id="volume-value">1238.23 cm&sup3;</strong>
+          </div>
+          <div>
+            <span>Comparaci&oacute;n</span>
+            <strong id="comparison-value">Volumen m&aacute;ximo</strong>
+          </div>
+        </div>
+
+        <div class="formula-panel">
+          <p><strong>Restricci&oacute;n:</strong> 8&sup2; = (h/2)&sup2; + r&sup2;</p>
+          <p><strong>Radio:</strong> r&sup2; = 64 - h&sup2;/4</p>
+          <p><strong>Volumen:</strong> V(h) = &pi;(64 - h&sup2;/4)h</p>
+          <p><strong>Derivada:</strong> V'(h) = 64&pi; - 3&pi;h&sup2;/4</p>
+        </div>
+
+        <fieldset class="part-toggles">
+          <legend>Partes visibles</legend>
+          <label><input type="checkbox" data-part="sphere" checked> Esfera</label>
+          <label><input type="checkbox" data-part="cylinder" checked> Cilindro</label>
+          <label><input type="checkbox" data-part="triangle" checked> Tri&aacute;ngulo OSP</label>
+          <label><input type="checkbox" data-part="height" checked> Altura h</label>
+          <div class="view-mode" aria-label="Modo de visualizacion">
+            <span>Vista</span>
+            <div class="segmented-control">
+              <button id="view-3d" class="segment-button active" type="button" aria-pressed="true">3D</button>
+              <button id="view-2d" class="segment-button" type="button" aria-pressed="false">Corte 2D</button>
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="chart-wrap" aria-labelledby="chart-title">
+          <div class="section-head compact">
+            <h2 id="chart-title">V(h)</h2>
+            <span id="max-value">h* = 9.24 cm</span>
+          </div>
+          <svg id="volume-chart" viewBox="0 0 460 190" role="img" aria-label="Grafico del volumen del cilindro segun su altura">
+            <line x1="42" y1="150" x2="430" y2="150" class="axis"></line>
+            <line x1="42" y1="20" x2="42" y2="150" class="axis"></line>
+            <path id="volume-path" d="" class="volume-path"></path>
+            <line id="opt-line" x1="0" y1="20" x2="0" y2="150" class="opt-line"></line>
+            <line id="current-line" x1="0" y1="20" x2="0" y2="150" class="current-line"></line>
+            <circle id="opt-dot" cx="0" cy="0" r="5" class="opt-dot"></circle>
+            <circle id="current-dot" cx="0" cy="0" r="7" class="current-dot"></circle>
+            <text x="35" y="170" class="chart-label">0</text>
+            <text x="413" y="170" class="chart-label">16</text>
+            <text x="18" y="24" class="chart-label">V</text>
+            <text id="chart-h-label" x="0" y="182" class="chart-label">h</text>
+          </svg>
+        </div>
+
+        <div class="resource-panel" aria-label="Recursos">
+          <a class="qr-link" href="https://ay10.gmolina.cl" target="_blank" rel="noopener" aria-label="Abrir ay10.gmolina.cl">
+            <svg class="qr-code" viewBox="0 0 264 264" role="img" aria-label="QR a ay10.gmolina.cl">
+              <rect width="264" height="264" fill="#fff"></rect>
+              <g fill="#16232e">
+                <path d="M32 32h56v8h-56zM112 32h8v8h-8zM128 32h16v8h-16zM160 32h8v8h-8zM176 32h56v8h-56z"></path>
+                <path d="M32 40h8v8h-8zM80 40h8v8h-8zM104 40h8v8h-8zM152 40h8v8h-8zM176 40h8v8h-8zM224 40h8v8h-8z"></path>
+                <path d="M32 48h8v8h-8zM48 48h24v8h-24zM80 48h8v8h-8zM96 48h16v8h-16zM120 48h16v8h-16zM144 48h24v8h-24zM176 48h8v8h-8zM192 48h24v8h-24zM224 48h8v8h-8z"></path>
+                <path d="M32 56h8v8h-8zM48 56h24v8h-24zM80 56h8v8h-8zM96 56h8v8h-8zM120 56h32v8h-32zM176 56h8v8h-8zM192 56h24v8h-24zM224 56h8v8h-8z"></path>
+                <path d="M32 64h8v8h-8zM48 64h24v8h-24zM80 64h8v8h-8zM96 64h24v8h-24zM128 64h16v8h-16zM160 64h8v8h-8zM176 64h8v8h-8zM192 64h24v8h-24zM224 64h8v8h-8z"></path>
+                <path d="M32 72h8v8h-8zM80 72h8v8h-8zM96 72h16v8h-16zM128 72h40v8h-40zM176 72h8v8h-8zM224 72h8v8h-8z"></path>
+                <path d="M32 80h56v8h-56zM96 80h8v8h-8zM112 80h8v8h-8zM128 80h8v8h-8zM144 80h8v8h-8zM160 80h8v8h-8zM176 80h56v8h-56z"></path>
+                <path d="M96 88h16v8h-16zM160 88h8v8h-8z"></path>
+                <path d="M32 96h8v8h-8zM48 96h40v8h-40zM136 96h16v8h-16zM176 96h40v8h-40z"></path>
+                <path d="M40 104h16v8h-16zM64 104h8v8h-8zM88 104h8v8h-8zM104 104h16v8h-16zM160 104h16v8h-16zM184 104h8v8h-8zM216 104h8v8h-8z"></path>
+                <path d="M32 112h16v8h-16zM56 112h16v8h-16zM80 112h16v8h-16zM104 112h16v8h-16zM152 112h16v8h-16zM184 112h8v8h-8zM200 112h8v8h-8zM216 112h16v8h-16z"></path>
+                <path d="M32 120h8v8h-8zM48 120h8v8h-8zM64 120h8v8h-8zM88 120h24v8h-24zM120 120h16v8h-16zM144 120h40v8h-40zM224 120h8v8h-8z"></path>
+                <path d="M32 128h8v8h-8zM48 128h8v8h-8zM72 128h16v8h-16zM128 128h16v8h-16zM176 128h8v8h-8zM192 128h8v8h-8zM208 128h24v8h-24z"></path>
+                <path d="M32 136h16v8h-16zM56 136h8v8h-8zM88 136h8v8h-8zM112 136h8v8h-8zM136 136h8v8h-8zM160 136h16v8h-16zM184 136h8v8h-8zM200 136h8v8h-8zM216 136h8v8h-8z"></path>
+                <path d="M32 144h8v8h-8zM48 144h40v8h-40zM120 144h48v8h-48zM176 144h32v8h-32zM216 144h16v8h-16z"></path>
+                <path d="M32 152h8v8h-8zM48 152h16v8h-16zM88 152h16v8h-16zM120 152h8v8h-8zM160 152h40v8h-40zM224 152h8v8h-8z"></path>
+                <path d="M32 160h8v8h-8zM72 160h32v8h-32zM120 160h8v8h-8zM136 160h64v8h-64zM208 160h8v8h-8z"></path>
+                <path d="M96 168h24v8h-24zM128 168h8v8h-8zM152 168h16v8h-16zM192 168h16v8h-16z"></path>
+                <path d="M32 176h56v8h-56zM104 176h8v8h-8zM136 176h8v8h-8zM160 176h8v8h-8zM176 176h8v8h-8zM192 176h8v8h-8zM208 176h24v8h-24z"></path>
+                <path d="M32 184h8v8h-8zM80 184h8v8h-8zM96 184h16v8h-16zM128 184h8v8h-8zM144 184h8v8h-8zM160 184h8v8h-8zM192 184h16v8h-16zM216 184h8v8h-8z"></path>
+                <path d="M32 192h8v8h-8zM48 192h24v8h-24zM80 192h8v8h-8zM96 192h24v8h-24zM128 192h72v8h-72zM208 192h24v8h-24z"></path>
+                <path d="M32 200h8v8h-8zM48 200h24v8h-24zM80 200h8v8h-8zM96 200h24v8h-24zM136 200h8v8h-8zM152 200h16v8h-16zM176 200h8v8h-8zM192 200h40v8h-40z"></path>
+                <path d="M32 208h8v8h-8zM48 208h24v8h-24zM80 208h8v8h-8zM96 208h40v8h-40zM144 208h8v8h-8zM160 208h16v8h-16zM200 208h16v8h-16zM224 208h8v8h-8z"></path>
+                <path d="M32 216h8v8h-8zM80 216h8v8h-8zM104 216h8v8h-8zM120 216h8v8h-8zM152 216h16v8h-16zM176 216h32v8h-32zM224 216h8v8h-8z"></path>
+                <path d="M32 224h56v8h-56zM96 224h40v8h-40zM152 224h8v8h-8zM176 224h56v8h-56z"></path>
+              </g>
+            </svg>
+          </a>
+          <div class="resource-links">
+            <span>Material</span>
+            <a href="https://ay10.gmolina.cl" target="_blank" rel="noopener">ay10.gmolina.cl</a>
+            <a href="https://github.com/gonzalomolinah/ayudantia-10" target="_blank" rel="noopener">Repositorio en GitHub</a>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
