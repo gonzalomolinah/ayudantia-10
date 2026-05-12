@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Ejercicio 3 | Tangente de area minima</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=20260512-fix1">
   </head>
   <body>
     <header class="topbar">
@@ -20,7 +20,7 @@
         </div>
         <div class="resource-panel" aria-label="Recursos">
           <a class="qr-link" href="https://ay10.gmolina.cl" target="_blank" rel="noopener" aria-label="Abrir ay10.gmolina.cl">
-            <img class="qr-code" src="qr.png" alt="QR a ay10.gmolina.cl">
+            <img class="qr-code" src="qr.png?v=20260512-fix1" alt="QR a ay10.gmolina.cl">
           </a>
           <div class="resource-links">
             <span>Material</span>
@@ -50,49 +50,52 @@
             <filter id="pointShadow3" x="-40%" y="-40%" width="180%" height="180%">
               <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#123" flood-opacity="0.22"></feDropShadow>
             </filter>
+            <clipPath id="plotClip3">
+              <rect x="72" y="42" width="632" height="458"></rect>
+            </clipPath>
           </defs>
 
           <g class="part-grid">
-            <path id="grid-lines" d="" class="grid-lines"></path>
+            <path id="grid-lines" d="" class="grid-lines" fill="none" stroke="#d9e4ec" stroke-width="1"></path>
           </g>
 
           <g class="part-axes">
-            <line id="axis-x" class="axis-line" x1="0" y1="0" x2="0" y2="0"></line>
-            <line id="axis-y" class="axis-line" x1="0" y1="0" x2="0" y2="0"></line>
+            <line id="axis-x" class="axis-line" x1="0" y1="0" x2="0" y2="0" stroke="#263238" stroke-width="4" stroke-linecap="round"></line>
+            <line id="axis-y" class="axis-line" x1="0" y1="0" x2="0" y2="0" stroke="#263238" stroke-width="4" stroke-linecap="round"></line>
             <text id="axis-x-label" class="axis-label" x="0" y="0">x</text>
             <text id="axis-y-label" class="axis-label" x="0" y="0">y</text>
             <text id="origin-label" class="axis-label" x="0" y="0">0</text>
           </g>
 
           <g class="part-parabola">
-            <path id="parabola-path" class="parabola-path" d=""></path>
+            <path id="parabola-path" class="parabola-path" d="" fill="none" stroke="#4356b8" stroke-width="5" stroke-linecap="round" clip-path="url(#plotClip3)"></path>
             <text id="parabola-label" class="curve-label" x="0" y="0">y = 4 - x&sup2;</text>
           </g>
 
           <g class="part-triangle">
             <polygon id="area-triangle" points="" fill="url(#triangleFill3)" stroke="#d97706" stroke-width="2"></polygon>
-            <line id="base-guide" class="measure-line" x1="0" y1="0" x2="0" y2="0"></line>
-            <line id="height-guide-3" class="measure-line" x1="0" y1="0" x2="0" y2="0"></line>
+            <line id="base-guide" class="measure-line" x1="0" y1="0" x2="0" y2="0" stroke="#7b8792" stroke-width="3" stroke-dasharray="8 8"></line>
+            <line id="height-guide-3" class="measure-line" x1="0" y1="0" x2="0" y2="0" stroke="#7b8792" stroke-width="3" stroke-dasharray="8 8"></line>
             <text id="base-label" class="measure-label" x="0" y="0">B</text>
             <text id="height-label-3" class="measure-label" x="0" y="0">H</text>
           </g>
 
           <g class="part-tangent">
-            <line id="tangent-line" class="tangent-line" x1="0" y1="0" x2="0" y2="0"></line>
-            <circle id="x-intercept-dot" class="intercept-dot" cx="0" cy="0" r="6"></circle>
-            <circle id="y-intercept-dot" class="intercept-dot" cx="0" cy="0" r="6"></circle>
+            <line id="tangent-line" class="tangent-line" x1="0" y1="0" x2="0" y2="0" stroke="#e4572e" stroke-width="5" stroke-linecap="round"></line>
+            <circle id="x-intercept-dot" class="intercept-dot" cx="0" cy="0" r="6" fill="#fff" stroke="#b13d1f" stroke-width="4"></circle>
+            <circle id="y-intercept-dot" class="intercept-dot" cx="0" cy="0" r="6" fill="#fff" stroke="#b13d1f" stroke-width="4"></circle>
             <text id="x-intercept-label" class="point-label" x="0" y="0">B</text>
             <text id="y-intercept-label" class="point-label" x="0" y="0">H</text>
           </g>
 
           <g class="part-point" filter="url(#pointShadow3)">
-            <circle id="tangent-point" class="current-dot" cx="0" cy="0" r="8"></circle>
+            <circle id="tangent-point" class="current-dot" cx="0" cy="0" r="8" fill="#0f766e" stroke="#fff" stroke-width="3"></circle>
             <text id="point-label-3" class="point-label" x="0" y="0">P</text>
           </g>
 
           <g class="part-optimum">
-            <line id="optimum-guide" class="opt-line" x1="0" y1="0" x2="0" y2="0"></line>
-            <circle id="optimum-point" class="opt-dot" cx="0" cy="0" r="6"></circle>
+            <line id="optimum-guide" class="opt-line" x1="0" y1="0" x2="0" y2="0" stroke="#e4572e" stroke-width="2" stroke-dasharray="7 7"></line>
+            <circle id="optimum-point" class="opt-dot" cx="0" cy="0" r="6" fill="#e4572e"></circle>
             <text id="optimum-label" class="curve-label" x="0" y="0">P*</text>
           </g>
         </svg>
@@ -121,7 +124,7 @@
           <span>Punto de tangencia x<sub>0</sub></span>
           <strong id="x-value">1,15</strong>
         </label>
-        <input id="x-slider" type="range" min="0.45" max="2.45" step="0.01" value="1.15" aria-label="Punto de tangencia x cero">
+        <input id="x-slider" type="range" min="0.45" max="1.95" step="0.01" value="1.15" aria-label="Punto de tangencia x cero">
 
         <div class="metric-list" aria-live="polite">
           <div>
@@ -167,11 +170,11 @@
           <svg id="area-chart" viewBox="0 0 460 190" role="img" aria-label="Grafico del area del triangulo segun el punto de tangencia">
             <line x1="42" y1="150" x2="430" y2="150" class="axis"></line>
             <line x1="42" y1="20" x2="42" y2="150" class="axis"></line>
-            <path id="area-path" d="" class="area-path"></path>
-            <line id="area-opt-line" x1="0" y1="20" x2="0" y2="150" class="opt-line"></line>
-            <line id="area-current-line" x1="0" y1="20" x2="0" y2="150" class="current-line"></line>
-            <circle id="area-opt-dot" cx="0" cy="0" r="5" class="opt-dot"></circle>
-            <circle id="area-current-dot" cx="0" cy="0" r="7" class="current-dot"></circle>
+            <path id="area-path" d="" class="area-path" fill="none" stroke="#9f2f74" stroke-width="4" stroke-linecap="round"></path>
+            <line id="area-opt-line" x1="0" y1="20" x2="0" y2="150" class="opt-line" stroke="#e4572e" stroke-width="2" stroke-dasharray="7 7"></line>
+            <line id="area-current-line" x1="0" y1="20" x2="0" y2="150" class="current-line" stroke="#0f766e" stroke-width="2" opacity="0.65"></line>
+            <circle id="area-opt-dot" cx="0" cy="0" r="5" class="opt-dot" fill="#e4572e"></circle>
+            <circle id="area-current-dot" cx="0" cy="0" r="7" class="current-dot" fill="#fff" stroke="#0f766e" stroke-width="4"></circle>
             <text x="35" y="170" class="chart-label">0</text>
             <text x="402" y="170" class="chart-label">x0</text>
             <text x="18" y="24" class="chart-label">A</text>
@@ -181,6 +184,6 @@
       </aside>
     </main>
 
-    <script src="ejercicio3.js"></script>
+    <script src="ejercicio3.js?v=20260512-fix1"></script>
   </body>
 </html>

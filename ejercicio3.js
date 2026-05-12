@@ -1,6 +1,6 @@
 const OPTIMAL_X = (2 * Math.sqrt(3)) / 3;
 const X_MIN = 0.45;
-const X_MAX = 2.45;
+const X_MAX = 1.95;
 
 const graph = {
   left: 72,
