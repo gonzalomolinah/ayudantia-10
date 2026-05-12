@@ -52,6 +52,26 @@ input {
   flex-wrap: wrap;
 }
 
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--teal-dark);
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: var(--shadow);
+}
+
+.nav-link:hover {
+  border-color: #aab8c4;
+  background: #f8fafc;
+}
+
 .topbar h1,
 .section-head h2 {
   margin: 0;
@@ -148,6 +168,13 @@ input {
   min-height: 430px;
 }
 
+.math-diagram {
+  display: block;
+  width: 100%;
+  max-height: 720px;
+  min-height: 430px;
+}
+
 .svg-title,
 .point-label,
 .measure-label,
@@ -180,7 +207,13 @@ input {
 .part-sphere-front,
 .part-cylinder,
 .part-triangle,
-.part-height {
+.part-height,
+.part-axes,
+.part-parabola,
+.part-tangent,
+.part-point,
+.part-optimum,
+.part-grid {
   transition: opacity 160ms ease;
 }
 
@@ -188,8 +221,65 @@ body.hide-sphere .part-sphere,
 body.hide-sphere .part-sphere-front,
 body.hide-cylinder .part-cylinder,
 body.hide-triangle .part-triangle,
-body.hide-height .part-height {
+body.hide-height .part-height,
+body.hide-axes .part-axes,
+body.hide-axes .part-grid,
+body.hide-parabola .part-parabola,
+body.hide-tangent .part-tangent,
+body.hide-point .part-point,
+body.hide-optimum .part-optimum {
   opacity: 0.12;
+}
+
+.grid-lines {
+  fill: none;
+  stroke: #d9e4ec;
+  stroke-width: 1;
+}
+
+.axis-line {
+  stroke: #263238;
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.axis-label,
+.curve-label {
+  fill: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.parabola-path {
+  fill: none;
+  stroke: var(--indigo);
+  stroke-width: 5;
+  stroke-linecap: round;
+}
+
+.tangent-line {
+  stroke: var(--orange);
+  stroke-width: 5;
+  stroke-linecap: round;
+}
+
+.measure-line {
+  stroke: #7b8792;
+  stroke-width: 3;
+  stroke-dasharray: 8 8;
+}
+
+.intercept-dot {
+  fill: #fff;
+  stroke: var(--orange-dark);
+  stroke-width: 4;
+}
+
+#tangent-point {
+  fill: var(--teal);
+  stroke: #fff;
+  stroke-width: 3;
 }
 
 .controls {
@@ -476,6 +566,13 @@ body.cylinder-2d #cylinder-front {
 .volume-path {
   fill: none;
   stroke: var(--indigo);
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.area-path {
+  fill: none;
+  stroke: var(--magenta);
   stroke-width: 4;
   stroke-linecap: round;
 }

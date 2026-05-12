@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ejercicio 3 | Tangente de area minima</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Ayudant&iacute;a 10 - MAT1610</p>
+        <h1>Tangente que forma el tri&aacute;ngulo de &aacute;rea m&iacute;nima</h1>
+      </div>
+      <div class="topbar-actions">
+        <a class="nav-link" href="index.html">Ejercicio 2</a>
+        <div class="answer-pill">
+          <span>Punto &oacute;ptimo</span>
+          <strong>P = (2&radic;3 / 3, 8 / 3)</strong>
+        </div>
+        <div class="resource-panel" aria-label="Recursos">
+          <a class="qr-link" href="https://ay10.gmolina.cl" target="_blank" rel="noopener" aria-label="Abrir ay10.gmolina.cl">
+            <img class="qr-code" src="qr.png" alt="QR a ay10.gmolina.cl">
+          </a>
+          <div class="resource-links">
+            <span>Material</span>
+            <a href="https://ay10.gmolina.cl" target="_blank" rel="noopener">ay10.gmolina.cl</a>
+            <a href="https://github.com/gonzalomolinah/ayudantia-10" target="_blank" rel="noopener">Repositorio en GitHub</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="surface stage" aria-labelledby="diagram-title">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Ejercicio 3</p>
+            <h2 id="diagram-title">Par&aacute;bola, recta tangente y tri&aacute;ngulo en el primer cuadrante</h2>
+          </div>
+          <p id="motion-state" class="state-label">Explorando tangentes</p>
+        </div>
+
+        <svg id="exercise3-diagram" class="math-diagram" viewBox="0 0 760 560" role="img" aria-label="Diagrama animado de la parabola y tangentes que forman triangulos con los ejes">
+          <defs>
+            <linearGradient id="triangleFill3" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0" stop-color="#fbe58f" stop-opacity="0.5"></stop>
+              <stop offset="1" stop-color="#f5a377" stop-opacity="0.38"></stop>
+            </linearGradient>
+            <filter id="pointShadow3" x="-40%" y="-40%" width="180%" height="180%">
+              <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#123" flood-opacity="0.22"></feDropShadow>
+            </filter>
+          </defs>
+
+          <g class="part-grid">
+            <path id="grid-lines" d="" class="grid-lines"></path>
+          </g>
+
+          <g class="part-axes">
+            <line id="axis-x" class="axis-line" x1="0" y1="0" x2="0" y2="0"></line>
+            <line id="axis-y" class="axis-line" x1="0" y1="0" x2="0" y2="0"></line>
+            <text id="axis-x-label" class="axis-label" x="0" y="0">x</text>
+            <text id="axis-y-label" class="axis-label" x="0" y="0">y</text>
+            <text id="origin-label" class="axis-label" x="0" y="0">0</text>
+          </g>
+
+          <g class="part-parabola">
+            <path id="parabola-path" class="parabola-path" d=""></path>
+            <text id="parabola-label" class="curve-label" x="0" y="0">y = 4 - x&sup2;</text>
+          </g>
+
+          <g class="part-triangle">
+            <polygon id="area-triangle" points="" fill="url(#triangleFill3)" stroke="#d97706" stroke-width="2"></polygon>
+            <line id="base-guide" class="measure-line" x1="0" y1="0" x2="0" y2="0"></line>
+            <line id="height-guide-3" class="measure-line" x1="0" y1="0" x2="0" y2="0"></line>
+            <text id="base-label" class="measure-label" x="0" y="0">B</text>
+            <text id="height-label-3" class="measure-label" x="0" y="0">H</text>
+          </g>
+
+          <g class="part-tangent">
+            <line id="tangent-line" class="tangent-line" x1="0" y1="0" x2="0" y2="0"></line>
+            <circle id="x-intercept-dot" class="intercept-dot" cx="0" cy="0" r="6"></circle>
+            <circle id="y-intercept-dot" class="intercept-dot" cx="0" cy="0" r="6"></circle>
+            <text id="x-intercept-label" class="point-label" x="0" y="0">B</text>
+            <text id="y-intercept-label" class="point-label" x="0" y="0">H</text>
+          </g>
+
+          <g class="part-point" filter="url(#pointShadow3)">
+            <circle id="tangent-point" class="current-dot" cx="0" cy="0" r="8"></circle>
+            <text id="point-label-3" class="point-label" x="0" y="0">P</text>
+          </g>
+
+          <g class="part-optimum">
+            <line id="optimum-guide" class="opt-line" x1="0" y1="0" x2="0" y2="0"></line>
+            <circle id="optimum-point" class="opt-dot" cx="0" cy="0" r="6"></circle>
+            <text id="optimum-label" class="curve-label" x="0" y="0">P*</text>
+          </g>
+        </svg>
+      </section>
+
+      <aside class="surface controls" aria-label="Controles de la animacion del ejercicio 3">
+        <div class="control-row">
+          <button id="play-toggle-3" class="primary-button" type="button" aria-pressed="true">
+            <svg class="icon play-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M8 5v14l11-7z"></path>
+            </svg>
+            <svg class="icon pause-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 5h4v14H7zM13 5h4v14h-4z"></path>
+            </svg>
+            <span id="play-label-3">Pausar</span>
+          </button>
+          <button id="min-button" class="ghost-button" type="button">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 3l2.3 6.3H21l-5.4 3.9 2.1 6.5L12 15.6 6.3 19.7l2.1-6.5L3 9.3h6.7z"></path>
+            </svg>
+            M&iacute;nimo
+          </button>
+        </div>
+
+        <label class="slider-block" for="x-slider">
+          <span>Punto de tangencia x<sub>0</sub></span>
+          <strong id="x-value">1,15</strong>
+        </label>
+        <input id="x-slider" type="range" min="0.45" max="2.45" step="0.01" value="1.15" aria-label="Punto de tangencia x cero">
+
+        <div class="metric-list" aria-live="polite">
+          <div>
+            <span>Punto P</span>
+            <strong id="point-value">(1,15; 2,67)</strong>
+          </div>
+          <div>
+            <span>Recta tangente</span>
+            <strong id="line-value">y = -2,31x + 5,33</strong>
+          </div>
+          <div>
+            <span>&Aacute;rea</span>
+            <strong id="area-value">6,16 u&sup2;</strong>
+          </div>
+          <div>
+            <span>Comparaci&oacute;n</span>
+            <strong id="comparison-value-3">&Aacute;rea m&iacute;nima</strong>
+          </div>
+        </div>
+
+        <div class="formula-panel">
+          <p><strong>Par&aacute;bola:</strong> y = 4 - x&sup2;</p>
+          <p><strong>Punto:</strong> P = (x<sub>0</sub>, 4 - x<sub>0</sub>&sup2;)</p>
+          <p><strong>Tangente:</strong> y = -2x<sub>0</sub>x + (4 + x<sub>0</sub>&sup2;)</p>
+          <p><strong>&Aacute;rea:</strong> A(x<sub>0</sub>) = (4 + x<sub>0</sub>&sup2;)&sup2; / 4x<sub>0</sub></p>
+        </div>
+
+        <fieldset class="part-toggles">
+          <legend>Partes visibles</legend>
+          <label><input type="checkbox" data-part="axes" checked> Ejes</label>
+          <label><input type="checkbox" data-part="parabola" checked> Par&aacute;bola</label>
+          <label><input type="checkbox" data-part="tangent" checked> Tangente</label>
+          <label><input type="checkbox" data-part="triangle" checked> Tri&aacute;ngulo</label>
+          <label><input type="checkbox" data-part="point" checked> Punto P</label>
+          <label><input type="checkbox" data-part="optimum" checked> &Oacute;ptimo</label>
+        </fieldset>
+
+        <div class="chart-wrap" aria-labelledby="area-chart-title">
+          <div class="section-head compact">
+            <h2 id="area-chart-title">A(x<sub>0</sub>)</h2>
+            <span id="min-value">x* = 1,15</span>
+          </div>
+          <svg id="area-chart" viewBox="0 0 460 190" role="img" aria-label="Grafico del area del triangulo segun el punto de tangencia">
+            <line x1="42" y1="150" x2="430" y2="150" class="axis"></line>
+            <line x1="42" y1="20" x2="42" y2="150" class="axis"></line>
+            <path id="area-path" d="" class="area-path"></path>
+            <line id="area-opt-line" x1="0" y1="20" x2="0" y2="150" class="opt-line"></line>
+            <line id="area-current-line" x1="0" y1="20" x2="0" y2="150" class="current-line"></line>
+            <circle id="area-opt-dot" cx="0" cy="0" r="5" class="opt-dot"></circle>
+            <circle id="area-current-dot" cx="0" cy="0" r="7" class="current-dot"></circle>
+            <text x="35" y="170" class="chart-label">0</text>
+            <text x="402" y="170" class="chart-label">x0</text>
+            <text x="18" y="24" class="chart-label">A</text>
+            <text id="chart-x-label" x="0" y="182" class="chart-label">x</text>
+          </svg>
+        </div>
+      </aside>
+    </main>
+
+    <script src="ejercicio3.js"></script>
+  </body>
+</html>
